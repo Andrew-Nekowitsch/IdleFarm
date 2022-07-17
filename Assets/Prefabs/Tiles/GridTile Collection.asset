@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c05c19ce75d6e8489b80f2d5fc3d91d, type: 3}
+  m_Name: GridTile Collection
+  m_EditorClassIdentifier: 
+  _gridTileBrushes:
+  - m_GridTile: {fileID: 9193837076872434973, guid: ab9e2c97bca162b41a535b199cb8ea11,
+      type: 3}
+    m_Height: 0
+    m_Offset: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: 0, y: 0, z: 0}
+  m_SelectedGridTileBrushIndex: 0
