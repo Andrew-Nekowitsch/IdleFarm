@@ -818,8 +818,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75338205}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.771596, y: 2.454458, z: -6.4546347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4060,8 +4060,8 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1999490372}
-        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+      - m_Target: {fileID: 1999490375}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
         m_MethodName: StartTestTimer
         m_Mode: 1
         m_Arguments:
@@ -9490,7 +9490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 939.71216, y: 0}
   m_SizeDelta: {x: 0, y: 68}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &976850794
@@ -12955,7 +12955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1275.7122, y: 0}
   m_SizeDelta: {x: 0, y: 68}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1375714700
@@ -13578,7 +13578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 689.0521, y: 0}
   m_SizeDelta: {x: 0, y: 68}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1475741034
@@ -17938,8 +17938,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999490373}
-  - component: {fileID: 1999490372}
   - component: {fileID: 1999490374}
+  - component: {fileID: 1999490375}
   m_Layer: 0
   m_Name: Interactions
   m_TagString: Untagged
@@ -17947,21 +17947,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1999490372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999490371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ce3395cf7db76d43ad4f07ea5068373, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _numLoops: 0
-  maxLoops: 5
-  duration: 0.5
 --- !u!4 &1999490373
 Transform:
   m_ObjectHideFlags: 0
@@ -17989,6 +17974,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f125e9bd66c4d499c4592e5e98e6b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1999490375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999490371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5099d23e6942cc0478e65201afadda5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doesLoop: 1
+  numLoops: 0
+  maxLoops: 5
+  duration: 1
+  timeLeft: 0
+  elapsed: 0
+  OnEverySecond:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLoopComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1999490374}
+        m_TargetAssemblyTypeName: ColorChanger, Assembly-CSharp
+        m_MethodName: ChangeColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  xSeconds: 3
+  xSecondsFlag: 0
+  OnXSecondsLeft:
+    m_PersistentCalls:
+      m_Calls: []
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2030093216
 GameObject:
   m_ObjectHideFlags: 0
