@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
+	[SerializeField]
+	private bool autoStart;
+
 	#region Looping
 	[Title("Looping")]
 	[SerializeField]
@@ -55,6 +58,8 @@ public class Timer : MonoBehaviour
 	private void Awake()
 	{
 		ResetState();
+		if (autoStart)
+			StartTimer();
 	}
 
 	private void ResetState()
@@ -63,10 +68,10 @@ public class Timer : MonoBehaviour
 		if (maxLoops == 0)
 			maxLoops = 1;
 		xSecondsFlag = false;
-		CancelTestTimer();
+		CancelTimer();
 	}
 
-	public void StartTestTimer()
+	public void StartTimer()
 	{
 		ResetState();
 
@@ -81,24 +86,24 @@ public class Timer : MonoBehaviour
 			onComplete: () =>
 			{
 				LoopComplete();
-				if (numLoops >= maxLoops)
+				if (maxLoops != -1 && numLoops >= maxLoops)
 					TimerComplete();
 			},
 			isLooped: doesLoop
 			);
 	}
 
-	public void CancelTestTimer()
+	public void CancelTimer()
 	{
 		TimerClass.Cancel(_timer);
 	}
 
-	public void PauseTestTimer()
+	public void PauseTimer()
 	{
 		TimerClass.Pause(_timer);
 	}
 
-	public void ResumeTestTimer()
+	public void ResumeTimer()
 	{
 		TimerClass.Resume(_timer);
 	}
@@ -106,16 +111,16 @@ public class Timer : MonoBehaviour
 	private void TimerComplete()
 	{
 		numSeconds = 0;
-		CancelTestTimer();
+		CancelTimer();
 		OnComplete.Invoke();
-		Debug.Log("Timer Complete");
+		//Debug.Log("Timer Complete");
 	}
 
 	private void LoopComplete()
 	{
 		numLoops++;
 		OnLoopComplete.Invoke();
-		Debug.Log(numLoops + " Loops");
+		//Debug.Log(numLoops + " Loops");
 	}
 
 	private void EverySecond(float timeElapsed)
@@ -125,18 +130,18 @@ public class Timer : MonoBehaviour
 		{
 			numSeconds++;
 			OnEverySecond.Invoke();
-			Debug.Log(numSeconds + " Seconds");
+			//Debug.Log(numSeconds + " Seconds");
 		}
 	}
 
 	private void XSecondsLeft(float timeElapsed)
 	{
-		if (xSecondsFlag) return;
+		if (maxLoops == -1 || xSecondsFlag) return;
 		if (timeElapsed + (numLoops * duration) >= (maxLoops * duration) - xSeconds)
 		{
 			xSecondsFlag = true;
 			OnXSecondsLeft.Invoke();
-			Debug.Log("xSecondsFlag Complete");
+			//Debug.Log("xSecondsFlag Complete");
 		}
 	}
 }

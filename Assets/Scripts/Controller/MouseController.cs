@@ -18,6 +18,7 @@ public class MouseController : MonoBehaviour
 					Interactable i = hit.transform.gameObject.GetComponent<Interactable>();
 					if (i != null)
 						i.BaseInteract();
+					Debug.Log(hit.transform.gameObject.name);
 				}
 			}
 		}
